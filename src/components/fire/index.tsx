@@ -7,9 +7,10 @@ type Props = {
   top: number;
   right: number;
   width: string;
+  putOut:() =>void
 };
 
-const Fire = ({ top, right, width }: Props) => {
+const Fire = ({ top, right, width,putOut }: Props) => {
     const [cursor, setCursor] = useState(WaterBucketCursor);
     const [isFireVisible, setIsFireVisible] = useState(true);
     const [opacity, setOpacity] = useState(1); 
@@ -22,6 +23,7 @@ const Fire = ({ top, right, width }: Props) => {
         setTimeout(() => {
             setIsFireVisible(false);
         }, 500); 
+        putOut()
     };
 
     // Include the transition in the style
