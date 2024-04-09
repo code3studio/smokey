@@ -1,5 +1,5 @@
 import MotionWrapper from "../motion-wrapper";
-import Illustrations from "../../assets/illustrations/1.png";
+import Illustrations from "../../assets/website/fire.webp";
 import { Grid, Typography } from "@mui/material";
 type Props = {};
 
@@ -9,7 +9,17 @@ const Tokenomics = (_props: Props) => {
       <Grid container justifyContent={"center"}>
         <Typography variant="h3">Tokenomics</Typography>
       </Grid>
-      <img src={Illustrations} alt="illu" width={600} />
+      <Grid container >
+        <Grid item md={6}>
+
+      <img src={Illustrations} alt="illu" />
+        </Grid>
+        <Grid item md={6} >
+        <Typography>Burn: 1B</Typography>
+
+        </Grid>
+      </Grid>
+      
     </MotionWrapper>
   );
 };
