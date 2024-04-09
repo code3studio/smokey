@@ -3,7 +3,7 @@ import Logo from "../../assets/branding/logo.png";
 import { motion } from "framer-motion";
 type Props = {};
 
-const Root = styled(Box)(({  }) => ({
+const Root = styled(Box)(({}) => ({
   background: `
       linear-gradient(#f8eacb, rgba(248, 233, 201, 0) 33%), 
       linear-gradient(180deg, rgba(37, 30, 25, 0) 35%, #251e19),
@@ -21,7 +21,7 @@ const Root = styled(Box)(({  }) => ({
 const MainSection = (_props: Props) => {
   return (
     <Root>
-      <Grid container justifyContent={"center"}>
+      <Grid container justifyContent={"center"} alignItems={"center"} direction="column">
         <motion.img
           src={Logo}
           initial={{ opacity: 0, scale: 0.5 }}
@@ -39,31 +39,47 @@ const MainSection = (_props: Props) => {
           alt="brand"
           width={300}
         />
-        <Grid container justifyContent={"center"} alignItems={"center"}>
-          <Grid item md={2}>
-            <motion.div
-              initial={{ opacity: 0, scale: 1 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1 }}
-            >
-              <Typography variant="h2">
-                Smokey Bear lives within us all
-              </Typography>
-            </motion.div>
-          </Grid>
-          <Grid item md={2}>
-          <motion.div
-              initial={{ opacity: 0, scale: 1 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1 }}
-            >
-            <Typography variant="h4">
-              we need you to prevent wildfires
-            </Typography>
-            </motion.div>
+        {/* <Grid container justifyContent={"center"} alignItems={"center"}>
+          <Grid item md={2}> */}
+        <motion.div
+          initial={{ opacity: 0, scale: 1 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1 }}
+        >
+          <Typography variant="h2">Smokey Bear lives within us all</Typography>
+        </motion.div>
+        {/* </Grid> */}
+        {/* <Grid item md={2}> */}
+        <motion.div
+          initial={{ opacity: 0, scale: 1 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1 }}
+        >
+          <Typography variant="h4">we need you to prevent wildfires</Typography>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, scale: 1 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1 }}
+          style={{ maxWidth: "600px" }}
+        >
+          <Typography
+            variant="body1"
+            align="center"
+            style={{ fontFamily: "Altone Trial-Bold", fontSize: "1.1rem" }}
+          >
+            Ladies and gentlemen, meet <strong>Smokey the Bear</strong> – forest
+            guardian and fashion icon with a hat fiercer than a grizzly's growl.
+            With his steely gaze and a paw that points with purpose, Smokey
+            stands ready to battle the blazes threatening our beloved forests.
+            But here's the catch – he needs your help! So, let's team up with
+            Smokey, douse those flames, and keep those forests standing tall and
+            proud!
+          </Typography>
+        </motion.div>
 
-          </Grid>
-        </Grid>
+        {/* </Grid> */}
+        {/* </Grid> */}
       </Grid>
     </Root>
   );
