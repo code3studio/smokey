@@ -15,7 +15,7 @@ function App() {
 
   useEffect(() => {
     const updateHeight = () => {
-      const height = document.documentElement.scrollHeight;
+      const height = document.body.scrollHeight;
       setDocumentHeight(height);
     };
 
@@ -43,7 +43,7 @@ function App() {
     generateRandomPositions();
   }, [documentHeight]);
 
-  
+  console.log(documentHeight)
 
   return (
     <div style={{position:"relative"}}>
