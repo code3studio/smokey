@@ -20,12 +20,12 @@ const WelcomePopup = (_props: Props) => {
     }}>
     <DialogContent>
         
-        <img src={Welcome} width={800} alt='welcome' style={{borderRadius:'16px'}} />
+        <img src={Welcome} width={"100%"} alt='welcome' style={{borderRadius:'16px'}} />
     </DialogContent>
     <DialogActions >
         <Grid container justifyContent={"center"} alignItems={"center"}>
 
-        <Typography variant='h4' color={"chartreuse"}>Help! Smokey Needs You to save the Forest!</Typography>
+        <Typography variant='h4' color={"chartreuse"} textAlign={"center"}>Help! Smokey Needs You to save the Forest!</Typography>
         </Grid>
     </DialogActions>
     </motion.div>
