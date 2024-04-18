@@ -1,19 +1,40 @@
 import { Box, Button, Card, CardActionArea, CardHeader, CardMedia, Grid, Typography, useMediaQuery, useTheme } from '@mui/material'
-import HowToBuyImg from '../../assets/illustrations/10.png'
 import MotionWrapper from '../motion-wrapper'
+
 type Props = {}
 
 const HowToBuy = (_props: Props) => {
+
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const handleCopyText = () => {
+    const textToCopy = import.meta.env.VITE_CONTRACT_ADDRESS;
+
+    navigator.clipboard
+      .writeText(textToCopy)
+      .then(() => {
+        console.log("Text copied successfully");
+      })
+      .catch((err) => {
+        console.error("Unable to copy text: ", err);
+      });
+  };  function abbreviateString(str: string, maxLength = 10) {
+    if (str.length <= maxLength) {
+      return str; //
+    }
+    const firstPart = str.substring(0, 10);
+    const lastPart = str.substring(str.length - 10);
+    return `${firstPart} ... ${lastPart}`;
+  }
+
   return (
-    <Box sx={{px:{md:10,sm:2,xs:2}}}>
+    <Box sx={{px:{md:4,sm:2,xs:2}}}>
     <MotionWrapper position={false}>
       <Grid container justifyContent={"center"} mt={4}>
         <Typography variant="h3" mb={4}>$Smokey</Typography>
       </Grid>
       <Grid container justifyContent={"center"} >
-        <Grid item md={6} sm={8} xs={12} >
+        <Grid item md={6} sm={10} xs={12} >
 
       <Card sx={{bgcolor:"#FF9204",borderRadius:12,width:"100%"}} >
         <CardHeader title="Contract Address"/>
@@ -22,8 +43,8 @@ const HowToBuy = (_props: Props) => {
         <CardActionArea sx={{py:6}}>
           <Grid container justifyContent={"space-around"} alignItems={"center"} flexDirection={isMobile?"column" :"row"}>
 
-          <Typography mb={isMobile ? 4:0}>{!isMobile ?"35K6HADRfyFig32ubnNHaL9G9WzdPHm4qjhnzDtXtdsa":"35K6HADRfyFig...hnzDtXtdsa"}</Typography>
-          <Button variant='outlined' sx={{fontSize:"26px", textTransform:'capitalize'}}>Copy</Button>
+          <Typography mb={isMobile ? 4:0}>{!isMobile ?import.meta.env.VITE_CONTRACT_ADDRESS:  abbreviateString(import.meta.env.VITE_CONTRACT_ADDRESS)}</Typography>
+          <Button variant='outlined'onClick={handleCopyText} sx={{fontSize:"26px", textTransform:'capitalize'}}>Copy</Button>
           </Grid>
           
         </CardActionArea>
