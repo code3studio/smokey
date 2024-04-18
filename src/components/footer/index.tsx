@@ -6,17 +6,17 @@ type Props = {}
 
 const Footer = (_props: Props) => {
   return (
-    <Grid container justifyContent={"space-around"}>
+    <Grid container justifyContent={"space-around"} py={4}>
         <Grid item>
-            <Typography>Smokey</Typography>
+            <Typography variant='h5'>Smokey</Typography>
         </Grid>
         <Grid item>
         {/* <Box > */}
           <IconButton>
-            <TelegramIcon />
+            <TelegramIcon color='success'/>
           </IconButton>
           <IconButton sx={{ml:4}}>
-            <XIcon />
+            <XIcon color="success"/>
           </IconButton>
         {/* </Box> */}
         </Grid>

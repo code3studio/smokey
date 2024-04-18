@@ -1,4 +1,5 @@
 import {
+  Container,
   Slide,
   SlideProps,
   Snackbar,
@@ -18,7 +19,7 @@ import ThanksDialog from "./components/thanks-dialog";
 function SlideTransition(props: SlideProps) {
   return <Slide {...props} direction="up" />;
 }
-
+let temp = 0;
 function App() {
   const [documentHeight, setDocumentHeight] = useState(0);
   const [fires, setFires] = useState<any>([]);
@@ -46,16 +47,21 @@ function App() {
       for (let i = 0; i < numOfFires; i++) {
         const top = Math.random() * 0.9;
         const right = Math.random();
-        newFires.push({ top, right });
+        let random = Math.random()
+        const width = random *100 >80 ? 80 : random*100 + 50
+        newFires.push({ top, right,width });
       }
-
+      
       setFires(newFires);
+      temp +=1
     };
+    if(temp === 0) {
 
-    generateRandomPositions();
+      generateRandomPositions();
+    }
   }, [documentHeight]);
 
-  console.log(documentHeight);
+  // console.log(documentHeight);
 
   const putOut = () => {
     setCount((count) => count - 1);
@@ -64,6 +70,8 @@ function App() {
   return (
     <div style={{ position: "relative" }}>
       <ThemeProvider theme={theme}>
+        <Container maxWidth="xl" sx={{px:'0px !important'}}>
+          
         <Header />
         <MainSection />
         {/* <Info/> */}
@@ -76,7 +84,7 @@ function App() {
             key={index}
             top={documentHeight * fire.top}
             right={window.innerWidth * fire.right}
-            width="100px"
+            width={`${fire.width}px`}
           />
         ))}
         <Snackbar
@@ -87,6 +95,7 @@ function App() {
           autoHideDuration={4000}
           anchorOrigin={{vertical:'bottom',horizontal:'right'}}
         />
+        </Container>
         {/* <SnackbarContent> */}
 
         {/* <ThanksDialog/> */}

@@ -6,8 +6,8 @@ type Props = {}
 const HowToBuy = (_props: Props) => {
   return (
     <MotionWrapper position={false}>
-      <Grid container justifyContent={"center"}>
-        <Typography variant="h3">How To Buy</Typography>
+      <Grid container justifyContent={"center"} mt={4}>
+        <Typography variant="h3" mb={4}>How To Buy</Typography>
       </Grid>
       <img src={HowToBuyImg} alt="illu" width={600} />
     </MotionWrapper>

@@ -1,4 +1,4 @@
-import { Box, Grid, Typography, styled } from "@mui/material";
+import { Box, Grid, Typography, styled, useMediaQuery, useTheme } from "@mui/material";
 import Logo from "../../assets/branding/logo.png";
 import { motion } from "framer-motion";
 type Props = {};
@@ -12,16 +12,18 @@ const Root = styled(Box)(({}) => ({
   backgroundSize: "cover",
   backgroundRepeat: "no-repeat",
   height: "100vh",
-  width: "calc(100vw - 10px)",
+  // width: "calc(100vw - 10px)",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
 }));
 
 const MainSection = (_props: Props) => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   return (
     <Root>
-      <Grid container justifyContent={"center"} alignItems={"center"} direction="column">
+      <Grid container justifyContent={"center"} alignItems={"center"} direction="column" sx={{px:2}}>
         <motion.img
           src={Logo}
           initial={{ opacity: 0, scale: 0.5 }}
@@ -37,7 +39,7 @@ const MainSection = (_props: Props) => {
             },
           }}
           alt="brand"
-          width={300}
+          width={isMobile ? 150:300}
         />
         {/* <Grid container justifyContent={"center"} alignItems={"center"}>
           <Grid item md={2}> */}
@@ -66,7 +68,7 @@ const MainSection = (_props: Props) => {
           <Typography
             variant="body1"
             align="center"
-            style={{ fontFamily: "Altone Trial-Bold", fontSize: "1.1rem" }}
+           
           >
             Ladies and gentlemen, meet <strong>Smokey the Bear</strong> – forest
             guardian and fashion icon with a hat fiercer than a grizzly's growl.
