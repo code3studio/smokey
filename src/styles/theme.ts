@@ -17,21 +17,21 @@ export const theme = createTheme({
 })
 
 theme.typography.h2 = {
-    fontSize: '60px',
+    fontSize: '70px',
     [theme.breakpoints.down('sm')]:{
         fontSize:'40px'
     }
     
   };
 theme.typography.h4 = {
-    fontSize: '40px',
+    fontSize: '50px',
     [theme.breakpoints.down('sm')]:{
         fontSize:'30px'
     }
     
   };
 theme.typography.body1 = {
-    fontSize: '20px',
+    fontSize: '24px',
     [theme.breakpoints.down('sm')]:{
         fontSize:'20px'
     },

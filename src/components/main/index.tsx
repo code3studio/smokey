@@ -57,7 +57,7 @@ const MainSection = (_props: Props) => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1 }}
         >
-          <Typography variant="h4">we need you to prevent wildfires</Typography>
+          <Typography variant="h4" mb={4}>we need you to prevent wildfires</Typography>
         </motion.div>
         <motion.div
           initial={{ opacity: 0, scale: 1 }}
