@@ -1,5 +1,6 @@
 import {
   Container,
+  Dialog,
   Slide,
   SlideProps,
   Snackbar,
@@ -15,6 +16,8 @@ import Footer from "./components/footer";
 import Fire from "./components/fire";
 import { useEffect, useState } from "react";
 import ThanksDialog from "./components/thanks-dialog";
+import WelcomePopup from "./components/welcome-popup";
+import MemeSection from "./components/meme";
 
 function SlideTransition(props: SlideProps) {
   return <Slide {...props} direction="up" />;
@@ -24,6 +27,7 @@ function App() {
   const [documentHeight, setDocumentHeight] = useState(0);
   const [fires, setFires] = useState<any>([]);
   const [count, setCount] = useState<number>(1);
+  const [open,setOpen] = useState<boolean>(true);
 
   useEffect(() => {
     const updateHeight = () => {
@@ -77,6 +81,7 @@ function App() {
         {/* <Info/> */}
         <Tokenomics />
         <HowToBuy />
+        <MemeSection/>
         <Footer />
         {fires.map((fire: any, index: number) => (
           <Fire
@@ -96,13 +101,9 @@ function App() {
           anchorOrigin={{vertical:'bottom',horizontal:'right'}}
         />
         </Container>
-        {/* <SnackbarContent> */}
-
-        {/* <ThanksDialog/> */}
-        {/* </SnackbarContent> */}
-        {/* </Snackbar> */}
-        {/* <Dialog open={count === 0} onClose={() => setCount(1)}> */}
-        {/* </Dialog> */}
+        <Dialog open={open} onClose={() => setOpen(false)} onClick={() => setOpen(false)} PaperProps={{sx:{bgcolor:"#251e19",borderRadius:6,overflow:'hidden'}}} maxWidth="md">
+          <WelcomePopup/>
+        </Dialog>
       </ThemeProvider>
     </div>
   );
