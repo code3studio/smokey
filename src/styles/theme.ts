@@ -25,7 +25,11 @@ export const theme = createTheme({
                     ":active":{
                         outline:'none !important'
                     },
-                    color:'white'
+                    ":hover" :{
+                        transform:"scale(1.1)"
+                    },
+                    color:'white',
+                    textTransform:'uppercase'
                 }
             }
         }
