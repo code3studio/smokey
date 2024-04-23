@@ -50,7 +50,10 @@ function App() {
 
       for (let i = 0; i < numOfFires; i++) {
         const top = Math.random() * 0.9;
-        const right = Math.random();
+        const min = 0.15;
+        const max = 0.85;
+        const right = Math.random() * (max - min) + min;
+        
         let random = Math.random()
         const width = random *100 >80 ? 80 : random*100 + 50
         newFires.push({ top, right,width });
@@ -88,7 +91,7 @@ function App() {
             putOut={putOut}
             key={index}
             top={documentHeight * fire.top}
-            right={window.innerWidth * fire.right -fire.width}
+            right={window.innerWidth * fire.right}
             width={`${fire.width}px`}
           />
         ))}
