@@ -13,6 +13,22 @@ export const theme = createTheme({
     typography:{
         fontFamily:'Forestana',
         
+    },
+    components:{
+        MuiButton:{
+            styleOverrides:{
+                root:{
+                    ":focus":{
+                        outline:'none !important',
+
+                    },
+                    ":active":{
+                        outline:'none !important'
+                    },
+                    color:'white'
+                }
+            }
+        }
     }
 })
 

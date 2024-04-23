@@ -44,7 +44,7 @@ const HowToBuy = (_props: Props) => {
           <Grid container justifyContent={"space-around"} alignItems={"center"} flexDirection={isMobile?"column" :"row"}>
 
           <Typography mb={isMobile ? 4:0}>{!isMobile ?import.meta.env.VITE_CONTRACT_ADDRESS:  abbreviateString(import.meta.env.VITE_CONTRACT_ADDRESS)}</Typography>
-          <Button variant='outlined'onClick={handleCopyText} sx={{fontSize:"26px", textTransform:'capitalize'}}>Copy</Button>
+          <Button onClick={handleCopyText} sx={{fontSize:"26px", textTransform:'capitalize',backgroundImage:'url(assets/btnback.webp)' ,backgroundPosition:'center',backgroundRepeat:'no-repeat',backgroundSize:'contain', width:120}}>Copy</Button>
           </Grid>
           
         </CardActionArea>
