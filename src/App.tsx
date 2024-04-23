@@ -88,7 +88,7 @@ function App() {
             putOut={putOut}
             key={index}
             top={documentHeight * fire.top}
-            right={window.innerWidth * fire.right}
+            right={window.innerWidth * fire.right -fire.width}
             width={`${fire.width}px`}
           />
         ))}
